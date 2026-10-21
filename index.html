@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METHAI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      margin: 0;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* VIDEO SECTION */
+    .video-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-section video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* VIDEO BOTTOM TEXT */
+    .video-text {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      width: 100%;
+      padding: 0 20px;
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-heading {
+      font-family: 'Kalam', cursive;
+      font-size: 39px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .video-subheading {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 650;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-top: 8px;
+    }
+
+    .video-description {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    /* APP STORE BUTTONS */
+    .app-downloads {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .app-downloads a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .app-downloads a:hover {
+      transform: scale(1.05);
+    }
+
+    .app-downloads img {
+      width: 170px;
+      height: auto;
+      display: block;
+    }
+
+    /* SCROLL DOWN */
+    .scroll-down {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 25px;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .scroll-arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: arrowMove 1.5s ease-in-out infinite;
+    }
+
+    .scroll-arrows svg {
+      width: 10px;
+      height: 6px;
+      display: block;
+      overflow: visible;
+    }
+
+    @keyframes arrowMove {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(5px);
+        opacity: 0.6;
+      }
+    }
+
+    /* SECOND SECTION */
+    .welcome-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      padding: 30px 20px;
+      overflow: hidden;
+    }
+
+    .welcome-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      transform: translateY(-80px);
+    }
+
+    /* BETTER FOOD HEADING */
+    .welcome-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -1.5px;
+      line-height: 1.3;
+      color: #E75480;
+      text-align: center;
+      text-transform: none;
+    }
+
+    /* DESCRIPTION */
+    .welcome-description {
+      max-width: 720px;
+      margin: 22px auto 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.7;
+      letter-spacing: 0;
+      color: #555555;
+      text-align: center;
+    }
+
+    /* RESPONSIVE IMAGE BELOW DESCRIPTION */
+    .welcome-image {
+      width: 100%;
+      margin: 30px auto 0;
+      text-align: center;
+    }
+
+    .welcome-image .desktop-image {
+      display: block;
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .welcome-image .mobile-image {
+      display: none;
+    }
+
+    /* SIDE FOOD IMAGES */
+    .side-food {
+      position: absolute;
+      z-index: 1;
+      display: block;
+      height: auto;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    /* DESKTOP - SAME */
+    .food-left {
+      width: 230px;
+      left: 9%;
+      top: 42%;
+    }
+
+    .food-right-top {
+      width: 210px;
+      right: 5%;
+      top: 12%;
+    }
+
+    .food-right-bottom {
+      width: 220px;
+      right: 5%;
+      bottom: 12%;
+    }
+
+    /* PINK CURVED LINES */
+    .food-line {
+      position: absolute;
+      z-index: 0;
+      width: 34%;
+      height: 100%;
+      top: 0;
+      pointer-events: none;
+    }
+
+    .food-line-left {
+      left: 0;
+    }
+
+    .food-line-right {
+      right: 0;
+    }
+
+    .food-line svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* TABLET - SAME */
+    @media (min-width: 601px) and (max-width: 1100px) {
+      .food-left {
+        width: 145px;
+        left: 5%;
+      }
+
+      .food-right-top {
+        width: 140px;
+        right: 1%;
+      }
+
+      .food-right-bottom {
+        width: 150px;
+        right: 1%;
+      }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      .video-text {
+        bottom: 25px;
+      }
+
+      .video-heading {
+        font-size: 38px;
+      }
+
+      .video-subheading {
+        font-size: 34px;
+        font-weight: 650;
+        letter-spacing: -0.5px;
+      }
+
+      .video-description {
+        font-size: 17px;
+        line-height: 1.5;
+        margin-top: 12px;
+      }
+
+      .app-downloads {
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .app-downloads img {
+        width: 145px;
+      }
+
+      .scroll-down {
+        margin-top: 20px;
+        font-size: 13px;
+        gap: 6px;
+      }
+
+      .scroll-arrows svg {
+        width: 9px;
+        height: 5px;
+      }
+
+      /* REMOVE EXTRA TOP GAP */
+      .welcome-section {
+        min-height: auto;
+        display: block;
+        padding: 55px 12px 45px;
+      }
+
+      .welcome-content {
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+      }
+
+      .welcome-heading {
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.7px;
+        line-height: 1.4;
+        position: relative;
+        z-index: 2;
+      }
+
+      .welcome-description {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.7;
+        margin: 18px auto 0;
+        max-width: 290px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .welcome-image {
+        margin-top: 25px;
+      }
+
+      /* HIDE PC IMAGE */
+      .welcome-image .desktop-image {
+        display: none;
+      }
+
+      /* SHOW MOBILE IMAGE */
+      .welcome-image .mobile-image {
+        display: block;
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      /* 3.PNG - LEFT SIDE OF TEXT */
+      .food-left {
+        width: 65px;
+        left: -15px;
+        top: 135px;
+      }
+
+      /* 4.JPG - RIGHT TOP OF TEXT */
+      .food-right-top {
+        width: 65px;
+        right: -15px;
+        top: 45px;
+      }
+
+      /* 5.PNG - RIGHT SIDE OF DESCRIPTION */
+      .food-right-bottom {
+        width: 70px;
+        right: -15px;
+        top: 230px;
+        bottom: auto;
+        z-index: 1;
+      }
+
+      /* NO PINK LINES ON MOBILE */
+      .food-line {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .scroll-arrows {
+        animation: none;
+      }
+    }
+    
+/* ONLY 3 SIDE FOOD IMAGES ANIMATION */
+
+/* LEFT IMAGE - INITIAL POSITION */
+.welcome-section .food-left {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+/* RIGHT IMAGES - INITIAL POSITION */
+.welcome-section .food-right-top,
+.welcome-section .food-right-bottom {
+  opacity: 0;
+  transform: translateX(120px);
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+/* ANIMATE ONLY FOOD IMAGES */
+.welcome-section.show-animation .food-left,
+.welcome-section.show-animation .food-right-top,
+.welcome-section.show-animation .food-right-bottom {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* SMALL DELAY FOR RIGHT IMAGES */
+.welcome-section .food-right-top {
+  transition-delay: 0.15s;
+}
+
+.welcome-section .food-right-bottom {
+  transition-delay: 0.3s;
+}
+
+/* NO ANIMATION FOR OTHER CONTENT */
+.welcome-section .welcome-heading,
+.welcome-section .welcome-description,
+.welcome-section .desktop-image,
+.welcome-section .mobile-image {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-section .side-food {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* THIRD SECTION */
+
+.waiting-section {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #FFF0F5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 65px 20px 50px;
+}
+
+.waiting-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  color: #C2185B;
+  text-align: center;
+  margin: 0;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 600px) {
+  .waiting-section {
+    padding: 45px 15px 40px;
+  }
+
+  .waiting-heading {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+  }
+}
+
+.waiting-description {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #555555;
+  text-align: center;
+  margin: 20px auto 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .waiting-description {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-top: 16px;
+    padding: 0 10px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-text">
+
+      <h1 class="video-heading">METHAI</h1>
+
+      <p class="video-subheading">food delivery app</p>
+
+      <p class="video-description">
+        Experience fast &amp; easy online ordering<br>
+        on the Mithai app
+      </p>
+
+      <!-- APP DOWNLOAD BUTTONS -->
+      <div class="app-downloads">
+
+        <a href="#" aria-label="Download on Google Play">
+          <img src="app.avif" alt="Get it on Google Play">
+        </a>
+
+        <a href="#" aria-label="Download on App Store">
+          <img src="google.avif" alt="Download on the App Store">
+        </a>
+
+      </div>
+
+      <!-- SCROLL DOWN -->
+      <a href="#welcome" class="scroll-down">
+
+        <span>Scroll down</span>
+
+        <span class="scroll-arrows" aria-hidden="true">
+
+          <svg viewBox="0 0 28 15" fill="none">
+            <path
+              d="M3 3 L14 13 L25 3"
+              stroke="white"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+          </svg>
+
+          <svg viewBox="0 0 28 15" fill="none">
+            <path
+              d="M3 3 L14 13 L25 3"
+              stroke="white"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+          </svg>
+
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- BETTER FOOD SECTION -->
+  <section class="welcome-section" id="welcome">
+
+    <!-- LEFT PINK CURVED LINE -->
+    <div class="food-line food-line-left" aria-hidden="true">
+      <svg viewBox="0 0 500 900" preserveAspectRatio="none">
+        <path
+          d="M-40 30
+             C80 40, 110 170, 230 120
+             S410 0, 300 65
+             C160 150, 100 250, 190 340
+             S390 480, 300 650
+             C210 820, 90 880, -30 820"
+          fill="none"
+          stroke="#FFB6C9"
+          stroke-width="1.3"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT PINK CURVED LINE -->
+    <div class="food-line food-line-right" aria-hidden="true">
+      <svg viewBox="0 0 500 900" preserveAspectRatio="none">
+        <path
+          d="M520 70
+             C370 90, 300 0, 190 45
+             C50 100, 120 250, 260 370
+             S440 570, 330 700
+             C230 820, 310 900, 420 780
+             S500 660, 540 680"
+          fill="none"
+          stroke="#FFB6C9"
+          stroke-width="1.3"/>
+      </svg>
+    </div>
+
+    <!-- LEFT FOOD IMAGE -->
+    <img
+      src="foods/3.png"
+      class="side-food food-left"
+      alt="Delicious food">
+
+    <!-- RIGHT TOP FOOD IMAGE -->
+    <img
+      src="foods/4.png"
+      class="side-food food-right-top"
+      alt="Fresh food">
+
+    <!-- RIGHT BOTTOM FOOD IMAGE -->
+    <img
+      src="foods/5.png"
+      class="side-food food-right-bottom"
+      alt="Tasty food">
+
+    <!-- CENTER CONTENT -->
+    <div class="welcome-content">
+
+      <h2 class="welcome-heading">
+        Better food for<br>
+        more people
+      </h2>
+
+      <p class="welcome-description">
+        Discover delicious meals from your favourite restaurants,<br>
+        freshly prepared and delivered straight<br>
+        to your doorstep.
+      </p>
+
+      <!-- PC AND MOBILE IMAGES -->
+      <div class="welcome-image">
+
+        <img
+          src="1.png"
+          class="desktop-image"
+          alt="METHAI food delivery">
+
+        <img
+          src="2.png"
+          class="mobile-image"
+          alt="METHAI food delivery">
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- THIRD SECTION -->
+<section class="waiting-section" id="waiting">
+
+  <h2 class="waiting-heading">
+    What’s waiting for you<br>
+    on the app?
+  </h2>
+
+<p class="waiting-description">
+  Our app is packed with features that<br>
+  enable you to experience food<br>
+  delivery like never before
+</p>
+
+</section>
+
+</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const section = document.querySelector(".welcome-section");
+
+  if (!section) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    section.classList.add("show-animation");
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    section.classList.add("show-animation");
+    return;
+  }
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        section.classList.add("show-animation");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  observer.observe(section);
+
+});
+</script>
+
+</html>
